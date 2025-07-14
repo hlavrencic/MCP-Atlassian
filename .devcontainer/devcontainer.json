@@ -1,0 +1,34 @@
+{
+  "name": "MCP Atlassian - Ultra Lightweight",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "dockerDashComposeVersion": "v2"
+    }
+  },
+  
+  "forwardPorts": [9000],
+  "portsAttributes": {
+    "9000": {
+      "label": "MCP Atlassian Server",
+      "onAutoForward": "notify"
+    }
+  },
+  
+  "postCreateCommand": "chmod +x mcp-manager.sh && [ ! -f .env ] && cp .env.example .env && echo '✅ Dev container ready! .env file created. Edit it with your credentials and run: ./mcp-manager.sh start' || echo '✅ Dev container ready! .env file already exists. Run: ./mcp-manager.sh start'",
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-json"
+      ]
+    }
+  },
+  
+  "runArgs": [
+    "--privileged"
+  ],
+  "workspaceFolder": "/workspaces/MCP-Atlassian"
+}

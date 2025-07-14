@@ -1,0 +1,53 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start MCP Atlassian (Background)",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start-mcp-background"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start MCP Atlassian (Interactive)",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start-mcp"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Stop MCP Atlassian",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"stop-mcp"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Show MCP Atlassian Logs",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"logs-mcp"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
