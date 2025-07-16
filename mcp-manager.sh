@@ -14,7 +14,7 @@ fi
 case "$1" in
     start)
         echo "🚀 Starting MCP Atlassian server in background..."
-        docker run --name mcp-atlassian -p 9000:9000 \
+        docker run --rm --name mcp-atlassian -p 9000:9000 \
             -e CONFLUENCE_URL="$CONFLUENCE_URL" \
             -e CONFLUENCE_USERNAME="$CONFLUENCE_USERNAME" \
             -e CONFLUENCE_API_TOKEN="$CONFLUENCE_API_TOKEN" \
@@ -27,7 +27,7 @@ case "$1" in
     
     stop)
         echo "🛑 Stopping MCP Atlassian server..."
-        docker stop mcp-atlassian && docker rm mcp-atlassian
+        docker stop mcp-atlassian
         echo "✅ MCP Atlassian server stopped!"
         ;;
     
@@ -53,10 +53,17 @@ case "$1" in
             ghcr.io/sooperset/mcp-atlassian:latest --transport sse --port 9000 -vv
         ;;
     
+    delete|rm)
+        echo "🗑️  Deleting MCP Atlassian container..."
+        docker stop mcp-atlassian 2>/dev/null || true
+        docker rm mcp-atlassian 2>/dev/null || true
+        echo "✅ MCP Atlassian container deleted!"
+        ;;
+
     *)
         echo "🐳 MCP Atlassian Container Manager"
         echo ""
-        echo "Usage: $0 {start|stop|logs|status|interactive}"
+        echo "Usage: $0 {start|stop|logs|status|interactive|delete}"
         echo ""
         echo "Commands:"
         echo "  start       - Start MCP server in background"
@@ -64,6 +71,7 @@ case "$1" in
         echo "  logs        - Show server logs"
         echo "  status      - Show container status"
         echo "  interactive - Start MCP server in interactive mode"
+        echo "  delete      - Delete the container (alias: rm)"
         echo ""
         exit 1
         ;;
