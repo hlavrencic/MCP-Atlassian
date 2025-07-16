@@ -14,7 +14,7 @@ fi
 case "$1" in
     start)
         echo "🚀 Starting MCP Atlassian server in background..."
-        docker run -d --name mcp-atlassian -p 9000:9000 \
+        docker run --name mcp-atlassian -p 9000:9000 \
             -e CONFLUENCE_URL="$CONFLUENCE_URL" \
             -e CONFLUENCE_USERNAME="$CONFLUENCE_USERNAME" \
             -e CONFLUENCE_API_TOKEN="$CONFLUENCE_API_TOKEN" \
