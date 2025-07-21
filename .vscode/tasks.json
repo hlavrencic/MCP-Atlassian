@@ -4,10 +4,9 @@
 		{
 			"label": "Start MCP Atlassian (Background)",
 			"type": "shell",
-			"command": "npm",
+			"command": "./mcp-manager.sh",
 			"args": [
-				"run",
-				"start-mcp-background"
+				"start"
 			],
 			"group": "build",
 			"isBackground": false,
@@ -16,10 +15,9 @@
 		{
 			"label": "Start MCP Atlassian (Interactive)",
 			"type": "shell",
-			"command": "npm",
+			"command": "./mcp-manager.sh",
 			"args": [
-				"run",
-				"start-mcp"
+				"interactive"
 			],
 			"group": "build",
 			"isBackground": true,
@@ -28,10 +26,9 @@
 		{
 			"label": "Stop MCP Atlassian",
 			"type": "shell",
-			"command": "npm",
+			"command": "./mcp-manager.sh",
 			"args": [
-				"run",
-				"stop-mcp"
+				"stop"
 			],
 			"group": "build",
 			"isBackground": false,
@@ -40,13 +37,23 @@
 		{
 			"label": "Show MCP Atlassian Logs",
 			"type": "shell",
-			"command": "npm",
+			"command": "./mcp-manager.sh",
 			"args": [
-				"run",
-				"logs-mcp"
+				"logs"
 			],
 			"group": "build",
 			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "MCP Atlassian Status",
+			"type": "shell",
+			"command": "./mcp-manager.sh",
+			"args": [
+				"status"
+			],
+			"group": "build",
+			"isBackground": false,
 			"problemMatcher": []
 		}
 	]

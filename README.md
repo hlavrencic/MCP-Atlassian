@@ -27,23 +27,24 @@ CONFLUENCE_API_TOKEN=tu-api-token
 ./mcp-manager.sh start
 ```
 
-### 4. Agregar servidor MCP
-Agrega esto a tu configuración:
+### 4. Configuración MCP Automática
+El dev container ya está configurado automáticamente para conectar GitHub Copilot al servidor MCP según las especificaciones oficiales de VS Code. La configuración se encuentra en:
+- `/.devcontainer/devcontainer.json` - Configuración automática para Dev Container
+- `/.vscode/mcp.json` - Configuración estándar del workspace
 
-```json
-{
-  "servers": {
-    "mcp-atlassian-http": {
-      "url": "http://127.0.0.1:9000/sse",
-      "type": "http"
-    }
-  }
-}
-```
+Una vez que inicies el servidor, podrás usar las funciones de Jira y Confluence directamente en Copilot Chat.
 
-* https://code.visualstudio.com/docs/copilot/chat/mcp-servers
+## Uso con VS Code
 
-## Comandos Útiles
+### Tareas Disponibles
+Usa `Ctrl+Shift+P` → "Tasks: Run Task" para ejecutar:
+- **Start MCP Atlassian (Background)** - Iniciar servidor en segundo plano
+- **Start MCP Atlassian (Interactive)** - Iniciar servidor en modo interactivo
+- **Stop MCP Atlassian** - Detener servidor
+- **Show MCP Atlassian Logs** - Mostrar logs del servidor
+- **MCP Atlassian Status** - Ver estado del contenedor
+
+### Comandos Manuales
 
 ```bash
 ./mcp-manager.sh start    # Iniciar servidor
@@ -54,10 +55,12 @@ Agrega esto a tu configuración:
 
 ## ¿Qué puedes hacer?
 
-Una vez conectado, puedes pedirle a Claude:
+Una vez que el servidor esté ejecutándose, puedes usar **GitHub Copilot Chat** con comandos como:
 - "Busca mis últimos tickets en Jira"
 - "Crea un ticket de bug en el proyecto X"
 - "Busca documentación sobre Y en Confluence"
 - "Actualiza el estado del ticket Z"
+- "Muestra los issues asignados a mí"
+- "Crea una página en Confluence con la documentación del proyecto"
 
 El servidor estará disponible en http://localhost:9000

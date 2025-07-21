@@ -17,13 +17,23 @@
     }
   },
   
-  "postCreateCommand": "chmod +x mcp-manager.sh && [ ! -f .env ] && cp .env.example .env && echo '✅ Dev container ready! .env file created. Edit it with your credentials and run: ./mcp-manager.sh start' || echo '✅ Dev container ready! .env file already exists. Run: ./mcp-manager.sh start'",
+  "postCreateCommand": "chmod +x mcp-manager.sh setup.sh && ./setup.sh",
   
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.vscode-json"
-      ]
+        "ms-vscode.vscode-json",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ],
+      "mcp": {
+        "servers": {
+          "mcp-atlassian-http": {
+            "url": "http://127.0.0.1:9000/sse",
+            "type": "http"
+          }
+        }
+      }
     }
   },
   
