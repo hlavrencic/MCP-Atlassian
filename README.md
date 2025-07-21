@@ -32,8 +32,15 @@ CONFLUENCE_API_TOKEN=tu-api-token
 ./mcp-manager.sh start
 ```
 
-### 4. Usar con GitHub Copilot
+### 4. Iniciar agente mcp 
+
+Iniciar la conexión con el servicio en: [mcp.json](./.vscode/mcp.json)
+
+
+### 5. Usar con GitHub Copilot
 El servidor MCP está preconfigurado automáticamente. Una vez iniciado, usa **GitHub Copilot Chat** en modo Agent.
+
+
 
 ## Uso con VS Code
 
