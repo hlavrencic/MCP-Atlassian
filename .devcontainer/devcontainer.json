@@ -17,7 +17,7 @@
     }
   },
   
-  "postCreateCommand": "apt-get update && apt-get install -y dos2unix && dos2unix bootstrap.sh 2>/dev/null || true && chmod +x bootstrap.sh && ./bootstrap.sh",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y dos2unix && dos2unix bootstrap.sh 2>/dev/null || true && chmod +x bootstrap.sh && ./bootstrap.sh",
   
   "customizations": {
     "vscode": {
@@ -38,6 +38,5 @@
   
   "runArgs": [
     "--privileged"
-  ],
-  "workspaceFolder": "/workspaces/MCP-Atlassian"
+  ]
 }
