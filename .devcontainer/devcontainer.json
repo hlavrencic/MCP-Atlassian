@@ -17,18 +17,26 @@
     }
   },
   
-  "postCreateCommand": "chmod +x mcp-manager.sh && [ ! -f .env ] && cp .env.example .env && echo '✅ Dev container ready! .env file created. Edit it with your credentials and run: ./mcp-manager.sh start' || echo '✅ Dev container ready! .env file already exists. Run: ./mcp-manager.sh start'",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y dos2unix && dos2unix bootstrap.sh 2>/dev/null || true && chmod +x bootstrap.sh && ./bootstrap.sh",
   
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.vscode-json"
-      ]
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ],
+      "mcp": {
+        "servers": {
+          "mcp-atlassian-http": {
+            "url": "http://127.0.0.1:9000/sse",
+            "type": "http"
+          }
+        }
+      }
     }
   },
   
   "runArgs": [
     "--privileged"
-  ],
-  "workspaceFolder": "/workspaces/MCP-Atlassian"
+  ]
 }
