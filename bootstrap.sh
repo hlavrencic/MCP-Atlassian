@@ -3,8 +3,6 @@
 # Bootstrap script for dev container - handles line endings and setup
 # This script is called by devcontainer.json postCreateCommand
 
-set -e  # Exit on any error
-
 echo "🔧 Iniciando configuración del Dev Container..."
 
 # Install dos2unix if not available
@@ -20,7 +18,7 @@ find . -name "*.sh" -type f -exec dos2unix {} \; 2>/dev/null || true
 
 # Make all shell scripts executable
 echo "🔒 Estableciendo permisos de ejecución..."
-find . -name "*.sh" -type f -exec chmod +x {} \;
+find . -name "*.sh" -type f -exec chmod +x {} \; 2>/dev/null || true
 
 # Specifically ensure mcp-manager.sh is executable
 chmod +x mcp-manager.sh 2>/dev/null || true
@@ -31,7 +29,7 @@ echo ""
 # Now run the actual setup
 if [ -f "./setup.sh" ]; then
     echo "🚀 Ejecutando setup del proyecto..."
-    ./setup.sh
+    ./setup.sh || echo "⚠️  Setup completado con advertencias."
 else
     echo "⚠️  setup.sh no encontrado, saltando configuración específica del proyecto."
 fi

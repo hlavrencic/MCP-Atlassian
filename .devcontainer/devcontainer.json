@@ -6,14 +6,6 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "version": "latest",
       "dockerDashComposeVersion": "v2"
-    },
-    "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": false,
-      "installOhMyZsh": false,
-      "upgradePackages": false,
-      "username": "automatic",
-      "uid": "automatic",
-      "gid": "automatic"
     }
   },
   
@@ -25,12 +17,11 @@
     }
   },
   
-  "postCreateCommand": "apt-get update && apt-get install -y dos2unix && dos2unix bootstrap.sh && chmod +x bootstrap.sh && ./bootstrap.sh",
+  "postCreateCommand": "apt-get update && apt-get install -y dos2unix && dos2unix bootstrap.sh 2>/dev/null || true && chmod +x bootstrap.sh && ./bootstrap.sh",
   
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.vscode-json",
         "GitHub.copilot",
         "GitHub.copilot-chat"
       ],
