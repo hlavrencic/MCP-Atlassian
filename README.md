@@ -27,8 +27,8 @@ CONFLUENCE_API_TOKEN=tu-api-token
 ./mcp-manager.sh start
 ```
 
-### 4. Conectar con Claude Desktop
-Agrega esto a tu configuración de Claude Desktop (`mcp.json`):
+### 4. Agregar servidor MCP
+Agrega esto a tu configuración:
 
 ```json
 {
@@ -40,6 +40,8 @@ Agrega esto a tu configuración de Claude Desktop (`mcp.json`):
   }
 }
 ```
+
+* https://code.visualstudio.com/docs/copilot/chat/mcp-servers
 
 ## Comandos Útiles
 
