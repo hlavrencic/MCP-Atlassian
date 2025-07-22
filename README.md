@@ -36,6 +36,7 @@ CONFLUENCE_API_TOKEN=tu-api-token
 
 Iniciar la conexión con el servicio en: [mcp.json](./.vscode/mcp.json)
 
+![alt text](https://code.visualstudio.com/assets/docs/copilot/chat/mcp-servers/mcp-server-config-lenses.png)
 
 ### 5. Usar con GitHub Copilot
 El servidor MCP está preconfigurado automáticamente. Una vez iniciado, usa **GitHub Copilot Chat** en modo Agent.
