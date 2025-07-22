@@ -4,6 +4,8 @@
 
 # Load environment variables from .env file
 if [ -f .env ]; then
+    # Normalize line endings to avoid issues with Windows-created files
+    dos2unix .env 2>/dev/null || true
     export $(cat .env | grep -v '^#' | grep -v '^$' | xargs)
 else
     echo "⚠️  Warning: .env file not found. Please create one based on .env.example"
