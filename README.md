@@ -72,24 +72,6 @@ El Dev Container incluye un sistema de configuración automática que:
 3. **Establece permisos** de ejecución correctos
 4. **Ejecuta setup** del proyecto
 
-### Error en instalación de extensiones
-Si el Dev Container falla al instalar extensiones de GitHub Copilot:
-
-1. **Usa configuración minimal**:
-   - Renombra `devcontainer.json` a `devcontainer-full.json`
-   - Renombra `devcontainer-minimal.json` a `devcontainer.json`
-   - Reinicia el Dev Container
-
-2. **Instala extensiones manualmente**:
-   - Abre el marketplace de VS Code (`Ctrl+Shift+X`)
-   - Busca e instala "GitHub Copilot" y "GitHub Copilot Chat"
-
-### Error "bad interpreter" o scripts no ejecutables
-Si aún encuentras errores, puedes ejecutar manualmente:
-
-```bash
-./bootstrap.sh       # Configuración completa automática
-```
 
 ## ¿Qué puedes hacer?
 
